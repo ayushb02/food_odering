@@ -1,0 +1,178 @@
+.logo {
+    width: 6em;
+    padding-left: 40px;
+    transform: translateY(-10px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid orangered;
+  height: 100px;
+}
+
+.nav-items > ul{
+  display: flex;
+  list-style-type: none;
+  transform: translateX(-20px);
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+  margin-top: 5px;
+}
+
+.nav-items > ul > li{
+  font-size: 1.3em;
+  padding: 1.2em;
+  padding-bottom: 0%;
+  text-align: center;
+}
+
+
+.kart-logo {
+  width: 4em;
+  transform: translateY(-25px);
+  
+}
+
+.button {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: text;
+  border-radius: 16px;
+  transform: translateY(-5px);
+  
+}
+
+
+
+.rest-card{
+  width: 16em;
+  height: 20em;
+  margin: 1em;
+  margin-top: 2em;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 16em;
+  
+  
+}
+.rest-card:hover{
+  box-shadow: 0 4px 8px 0 rgba(255, 69, 0, 0.2), 0 6px 20px 0 rgba(255, 69, 0, 0.19);
+  transition-duration: 0.2s;
+  cursor: pointer;
+} 
+
+.res-logo{
+  width: 14em;
+  height: 12em;
+  object-fit: cover;
+  border-radius: 10%;
+  margin-top: 5%;
+  margin-bottom: 1em;
+  display: flex;
+}
+
+.rate-logo{
+  width: 5em;
+  height: 0.8em;
+  object-fit: cover;
+}
+
+
+.rest-card > h3{
+  font-size: 1.2em;
+  margin-bottom: 2%;
+  margin-top: 0%;
+  
+}
+
+.rating{
+  font-size: 0.9em;
+}
+
+.cuisine {
+  color: rgb(103, 105, 124);
+  font-weight: 500;
+  font-size: 0.9em;
+  width: 13em;
+  margin-top: 2%;
+  text-align: center;
+}
+
+.res-dis{
+  height: 2em;
+}
+
+.body{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #E3E3E3;
+  padding-left: 2.2em;
+}
+
+.toprated-btn-container{
+  height: 2em;
+  width: 100em;
+  display: flex;
+  margin-top: 0.7em;
+}
+
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 50px;
+	height: 25px;
+	background: grey;
+	display: block;
+	border-radius: 25px;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 1.25px;
+	left: 1.25px;
+	width: 22.5px;
+	height: 22.5px;
+	background: #E3E3E3;
+	border-radius: 22.5px;
+	transition: 0.3s;
+}
+
+input:checked + label {
+	background: orangered;
+}
+
+input:checked + label:after {
+	left: calc(100% - 1.25px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 32.5px;
+}
+
+#top-label{
+  font-size: 0.9em;
+  margin-left: 1em;
+  color: gray;
+}
+
+input:checked ~ #top-label {
+	color: black;
+}
