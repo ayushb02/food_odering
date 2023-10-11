@@ -48,12 +48,16 @@
   transform: translateY(-5px);
   
 }
-
+ 
+.loading{
+  margin-left: 37em;
+  margin-top: 10em;
+}
 
 
 .rest-card{
   width: 16em;
-  height: 20em;
+  height: 25em;
   margin: 1em;
   margin-top: 2em;
   border-radius: 10%;
@@ -110,6 +114,11 @@
 .res-dis{
   height: 2em;
 }
+
+.res-name{
+  text-align: center;
+}
+
 
 .body{
   display: flex;
