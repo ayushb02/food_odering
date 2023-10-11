@@ -1,9 +1,8 @@
 import React from "react";
 
 function Rest_card(props) {
-  
   const { resData } = props;
-
+  
   const { name, cloudinaryImageId, avgRating, cuisines } = resData?.info;
 
   return (
