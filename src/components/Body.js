@@ -20,14 +20,14 @@ function Body() {
     console.log("json");
 
     setListOfRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
   if (listOfRestaurants.length === 0) {
     return <img className="loading" src="https://i.gifer.com/PYh.gif" />;
   };
-  
+
 
   return (
     <div className="body">
