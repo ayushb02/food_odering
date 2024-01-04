@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Rest_card from "./Rest_card";
+import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function Body() {
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
   const [isChecked, setIschecked] = useState(false);
 
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -22,37 +28,69 @@ function Body() {
     setListOfRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
+    setFilteredRestaurants(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
-  if (listOfRestaurants.length === 0) {
-    return <img className="loading" src="https://i.gifer.com/PYh.gif" />;
-  };
-
-
-  return (
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="toprated-btn-container">
-        <input
-          type="checkbox"
-          id="switch"
-          onChange={() => {
-            setIschecked(!isChecked);
+        <div className="btn-con-div">
+          <input
+            type="checkbox"
+            id="switch"
+            onChange={() => {
+              setIschecked(!isChecked);
 
-            if (!isChecked) {
-              const newlist = listOfRestaurants.filter(
-                (res) => res.info.avgRating > 4
+              if (!isChecked) {
+                const newlist = listOfRestaurants.filter(
+                  (res) => res.info.avgRating > 4
+                );
+                setFilteredRestaurants(newlist);
+              } else {
+                const newlist1 = listOfRestaurants;
+                setFilteredRestaurants(newlist1);
+              }
+            }}
+          />
+          <label className="label" for="switch">Toggle</label>
+          <span id="top-label">Top Rated Restaurant</span>
+        </div>
+        <div>
+          <input
+            type="text"
+            className="search"
+            value={searchText}
+            placeholder="What are you looking for?"
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          ></input>
+          <button
+            className="search-btn"
+            onClick={() => {
+              const FilterList = listOfRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-              setListOfRestaurants(newlist);
-            } else {
-              fetchData();
-            }
-          }}
-        />
-        <label for="switch">Toggle</label>
-        <span id="top-label">Top Rated Restaurant</span>
+
+              setFilteredRestaurants(FilterList);
+            }}
+          >
+            Search
+          </button>
+        </div>
       </div>
-      {listOfRestaurants.map((restaurants) => (
-        <Rest_card key={restaurants.info.id} resData={restaurants} />
+      {filteredRestaurants.map((restaurants) => (
+        <Link
+          key={restaurants?.info?.id}
+          to={"/restaurants/" + restaurants?.info?.id}
+        >
+          <Rest_card resData={restaurants} />
+        </Link>
       ))}
     </div>
   );

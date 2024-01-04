@@ -1,4 +1,5 @@
 import React from "react";
+import { CDN_URL } from "../utils/constants";
 
 function Rest_card(props) {
   const { resData } = props;
@@ -11,7 +12,7 @@ function Rest_card(props) {
         className="res-logo"
         alt="https://www.cypressgreen.in/blog/wp-content/uploads/2021/03/food.jpg"
         src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          CDN_URL +
           cloudinaryImageId
         }
       />
