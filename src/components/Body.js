@@ -26,15 +26,15 @@ function Body() {
     console.log("json");
 
     setListOfRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
     setFilteredRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants.length == 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -57,7 +57,9 @@ function Body() {
               }
             }}
           />
-          <label className="label" for="switch">Toggle</label>
+          <label className="label" for="switch">
+            Toggle
+          </label>
           <span id="top-label">Top Rated Restaurant</span>
         </div>
         <div>
